@@ -1,6 +1,8 @@
-FROM hashicorp/terraform
+FROM hashicorp/terraform:1.5.4
 
 WORKDIR /mnt/curso-terraform
+
+RUN apk update && apk add bash
 
 ENV AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
 ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
@@ -9,4 +11,4 @@ ENV ARM_TENANT_ID=${ARM_TENANT_ID}
 ENV ARM_SUBSCRIPTION_ID=${ARM_SUBSCRIPTION_ID}
 ENV ARM_CLIENT_SECRET=${ARM_CLIENT_SECRET} 
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/bash"]
